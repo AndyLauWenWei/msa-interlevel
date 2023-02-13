@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Choose Items to buy</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="save()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar (ionChange)="search($event)"></ion-searchbar>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-label>
+        <h2>{{item.id}}</h2>
+      </ion-label>
+      <ion-input slot="end" type="text" [(ngModel)]="item.quantity"></ion-input>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
